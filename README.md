@@ -4,7 +4,7 @@
 
 [![Foto do projeto](./src/md/calculadora_md.gif)](https://diglopes.github.io/calculadora-react)
 
-> Este projeto foi realizado em acompanhamento ao curso de React + Redux ministrado dentro da plataforma Udemy, cujo idealizador é [COD3R](https://www.cod3r.com.br/)
+> Este projeto foi realizado em acompanhamento ao curso de React + Redux ministrado dentro da plataforma Udemy, cujo idealizador é a [COD3R](https://www.cod3r.com.br/)
 
 ## Descrição
 
