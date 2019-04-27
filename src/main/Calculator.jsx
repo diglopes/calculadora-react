@@ -25,11 +25,42 @@ export default class Calculator extends Component {
   }
 
   setOperation(operation) {
-    console.log("operação", operation);
+    if (this.state.current === 0) {
+      this.setState({ operation, current: 1, clearDisplay: true });
+    } else {
+      const finishOperation = operation === "=";
+      const currentOperation = this.state.operation;
+      const values = [...this.state.values];
+      switch (currentOperation) {
+        case "-":
+          values[0] -= values[1];
+          break;
+        case "+":
+          values[0] += values[1];
+          break;
+        case "*":
+          values[0] *= values[1];
+          break;
+        case "/":
+          values[0] /= values[1];
+          break;
+        default:
+          console.log("Deu problema...");
+      }
+      values[1] = 0;
+
+      this.setState({
+        displayValue: values[0],
+        operation: finishOperation ? null : operation,
+        current: finishOperation ? 0 : 1,
+        clearDisplay: !finishOperation,
+        values
+      });
+    }
   }
 
   addDigit(digit) {
-    if (digit === "." && this.state.displayValue.includes(".")) return;
+    if (digit === "." && this.state.displayValue.indexOf(".") !== -1) return;
     const clearDisplay =
       this.state.displayValue === "0" || this.state.clearDisplay;
     const currentValue = clearDisplay ? "" : this.state.displayValue;
